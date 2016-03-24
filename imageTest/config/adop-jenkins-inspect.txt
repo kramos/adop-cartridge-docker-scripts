@@ -1,0 +1,81 @@
+{
+    "RepoTags": [
+        "adop-jenkins:latest",
+    ],
+    "ContainerConfig": {
+        "ExposedPorts": {
+            "50000/tcp": {},
+            "8080/tcp": {}
+        },
+        "Env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "LANG=C.UTF-8",
+            "JAVA_DEBIAN_VERSION=8u45-b14-2~bpo8+2",
+            "CA_CERTIFICATES_JAVA_VERSION=20140324",
+            "JENKINS_HOME=/var/jenkins_home",
+            "JENKINS_VERSION=1.609.1",
+            "JENKINS_SHA=698284ad950bd663c783e99bc8045ca1c9f92159",
+            "JENKINS_UC=https://updates.jenkins-ci.org",
+            "COPY_REFERENCE_FILE_LOG=/var/log/copy_reference_file.log",
+            "GERRIT_HOST_NAME=gerrit",
+            "GERRIT_PORT=8080",
+            "GERRIT_JENKINS_USERNAME=",
+            "JAVA_VERSION=7u45",
+            "GERRIT_JENKINS_PASSWORD=",
+            "ADOP_LDAP_ENABLED=true",
+            "ADOP_SONAR_ENABLED=true",
+            "ADOP_ANT_ENABLED=true",
+            "ADOP_MAVEN_ENABLED=true",
+            "ADOP_NODEJS_ENABLED=true",
+            "ADOP_GERRIT_ENABLED=true"
+        ],
+        "Cmd": [
+            "/bin/sh",
+            "-c",
+            "#(nop) ENTRYPOINT &{[\"/entrypoint.sh\"]}"
+        ],
+        "Volumes": {
+            "/var/jenkins_home": {}
+        },
+        "Entrypoint": [
+            "/entrypoint.sh"
+        ],
+    },
+    "DockerVersion": "1.10.3",
+    "Config": {
+        "ExposedPorts": {
+            "50000/tcp": {},
+            "8080/tcp": {}
+        },
+        "Env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "LANG=C.UTF-8",
+            "JAVA_VERSION=8u45",
+            "JAVA_DEBIAN_VERSION=8u45-b14-2~bpo8+2",
+            "CA_CERTIFICATES_JAVA_VERSION=20140324",
+            "JENKINS_HOME=/var/jenkins_home",
+            "JENKINS_VERSION=1.609.1",
+            "JENKINS_SHA=698284ad950bd663c783e99bc8045ca1c9f92159",
+            "JENKINS_UC=https://updates.jenkins-ci.org",
+            "COPY_REFERENCE_FILE_LOG=/var/log/copy_reference_file.log",
+            "GERRIT_HOST_NAME=gerrit",
+            "GERRIT_PORT=8080",
+            "GERRIT_JENKINS_USERNAME=",
+            "GERRIT_JENKINS_PASSWORD=",
+            "ADOP_LDAP_ENABLED=true",
+            "ADOP_SONAR_ENABLED=true",
+            "ADOP_ANT_ENABLED=true",
+            "ADOP_MAVEN_ENABLED=true",
+            "ADOP_NODEJS_ENABLED=true",
+            "ADOP_GERRIT_ENABLED=true"
+        ],
+        "Volumes": {
+            "/var/jenkins_home": {}
+        },
+        "Entrypoint": [
+            "/entrypoint.sh"
+        ],
+    },
+    "Architecture": "amd64",
+    "Os": "linux",
+}

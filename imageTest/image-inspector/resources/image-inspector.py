@@ -7,10 +7,11 @@ import ast
 # lists for comparison
 expected_list = []
 found_list = []
+info_level = 1
 
 # print message
 def print_this(mystring, level):
-    info_level = 1 # 0 is off, 1 is info, 2+ is debug
+    global info_level
     if info_level >= 2 and level == 2:
         print "DEBUG: " + str(mystring)
     elif info_level >= 1 and level == 1:
@@ -18,11 +19,12 @@ def print_this(mystring, level):
 
 # read in parameters
 def main(argv):
+    global info_level
     image_name = ''
     inspect_file = ''
-    usage = 'image_inspector.py -i <image_name> -f <inspect_file>'
+    usage = 'image_inspector.py -i <image_name> -f <inspect_file> [-d]'
     try:
-        opts, args = getopt.getopt(argv,"hi:f:",["iname=","fname"])
+        opts, args = getopt.getopt(argv,"hi:f:d",["iname=","fname"])
     except getopt.GetoptError:
         print usage
         sys.exit(2)
@@ -34,6 +36,8 @@ def main(argv):
             image_name = arg
         elif opt in ("-f", "--ifile"):
             inspect_file = arg
+        elif opt == '-d':
+            info_level = 2
     if not image_name:
         print usage
         sys.exit(2)

@@ -1,0 +1,9 @@
+###ADD YOUR EXPECTED PROCESSES HERE###
+root /bin/bash /entrypoint.sh
+root su jenkins -c /usr/local/bin/jenkins.sh
+jenkins java -jar /usr/share/jenkins/jenkins.war
+###ADDED FOR TEST PROCESSES###
+root /bin/bash /var/tmp/test_entrypoint.sh
+root bash
+root /bin/bash ./tests.sh
+root ps -ef

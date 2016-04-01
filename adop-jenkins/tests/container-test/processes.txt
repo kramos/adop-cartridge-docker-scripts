@@ -5,4 +5,4 @@ jenkins java -jar /usr/share/jenkins/jenkins.war
 ###ADDED FOR TEST PROCESSES###
 root bash
 root ps -ef
-root /bin/bash ./container_tests.sh
+root /bin/bash /var/tmp/container_tests.sh

@@ -3,7 +3,7 @@ BASE_DIR=$1
 NAME=$2
 CFG_FILE=${BASE_DIR}/${NAME}/${NAME}.cfg
 
-echo "# Starting process tests."
+echo "# Starting process tests"
 
 # check for expected processes
 while read f
@@ -61,4 +61,4 @@ do
   fi
 done
 
-echo "# Finished process tests."
+echo "# Finished process tests"

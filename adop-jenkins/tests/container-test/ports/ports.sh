@@ -3,7 +3,7 @@ BASE_DIR=$1
 NAME=$2
 CFG_FILE=${BASE_DIR}/${NAME}/${NAME}.cfg
 
-echo "# Starting port tests."
+echo "# Starting port tests"
 
 # check expected ports are open
 for p in $(cat ${CFG_FILE}); do
@@ -30,4 +30,4 @@ done
 #  fi
 #done
 
-echo "# Finished port tests."
+echo "# Finished port tests"

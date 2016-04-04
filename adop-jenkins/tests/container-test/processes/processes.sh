@@ -16,20 +16,24 @@ do
 
   owner=$(echo $f | awk '{print $1}')
   process=$(echo $f | awk '{$1 = ""; print $0; }')
+  eval_process=$(echo $(eval "echo $process"))
 
-  ps -ef | grep -v grep | grep "${process}" >/dev/null
+  echo "PROCESS: ${process}"
+  echo "EVAL_PROCESS: ${eval_process}"
+
+  ps -ef | grep -v grep | grep "${eval_process}" >/dev/null
   if [ $? -eq 0 ]; then
-    echo "+ expected process found: ${process}"
+    echo "+ expected process found: ${eval_process}"
 
-    ps -ef | grep -v grep | grep "${process}" | awk '{print $1}' | grep "${owner}" >/dev/null
+    ps -ef | grep -v grep | grep "${eval_process}" | awk '{print $1}' | grep "${owner}" >/dev/null
     if [ $? -eq 0 ]; then
       echo "+ expected process owner: ${owner}"
     else
-      echo "- expected process incorrect owner: ${owner} /${process}"
+      echo "- expected process incorrect owner: ${owner} /${eval_process}"
     fi
 
   else
-    echo "- expected process missing: ${owner} /${process}"
+    echo "- expected process missing: ${owner} /${eval_process}"
   fi
 
 done < ${CFG_FILE}
@@ -47,8 +51,13 @@ do
     do
       owner3=$(echo $p2 | awk '{print $1}')
       process3=$(echo $p2 | awk '{$1 = ""; print $0; }')
+      eval_process3=$(echo $(eval "echo $process3"))
 
-      echo "${process2}" | grep "${process3}" >/dev/null
+      echo "PROCESS3: ${process3}"
+      echo "EVAL_PROCESS3: ${eval_process3}"
+
+
+      echo "${process2}" | grep "${eval_process3}" >/dev/null
       if [ $? -eq 0 ]; then
         flag=0
         break

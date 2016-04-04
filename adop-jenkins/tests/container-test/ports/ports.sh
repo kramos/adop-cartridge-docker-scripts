@@ -1,6 +1,6 @@
 #!/bin/bash
-BASE_DIR=$(pwd)
-NAME=$1
+BASE_DIR=$1
+NAME=$2
 CFG_FILE=${BASE_DIR}/${NAME}/${NAME}.cfg
 
 echo "# Starting port tests."

@@ -1,5 +1,5 @@
 #!/bin/bash
-BASE_DIR=$(echo ${TEST_DIR})
+BASE_DIR=$1
 PORTS="ports"
 PROCESSES="processes"
 
